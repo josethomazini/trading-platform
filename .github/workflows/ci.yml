@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  setup-node:
+    uses: ./.github/workflows/setup-node.yml
+
+  docker-compose:
+    uses: ./.github/workflows/docker-compose.yml
+
+  test:
+    needs: [setup-node, docker-compose]
+    uses: ./.github/workflows/test.yml
