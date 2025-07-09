@@ -16,13 +16,13 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     - name: 💡 Start dev containers
-      run: docker compose --env-file .env.dev -f docker/docker-compose-dev.yml up -d --build
+      run: make up
 
     - name: 🐧🐧🐧🐧 Wait for services to be ready
       run: sleep 10
 
     - name: 💡 Run tests with coverage
       run: |
-        docker compose --env-file .env.dev -f docker/docker-compose-dev.yml exec backend bash -c "npm run test"
+        make test
 
     - run: echo "🍏 This job's status is ${{ job.status }}."
