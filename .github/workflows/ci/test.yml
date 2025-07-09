@@ -7,6 +7,9 @@ on:
 jobs:
   test:
     steps:
+      - name: 🔎 Checkout
+        uses: actions/checkout@v4
+
       - name: 💡 Run tests with coverage
         run: |
           docker compose --env-file .env.dev -f docker/docker-compose-dev.yml exec backend bash -c "npm run test"
