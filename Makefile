@@ -7,16 +7,16 @@ help: ## Show this help
 	awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
 up: ## Run composer as a daemon
-	docker compose --env-file .env.dev -f docker/docker-compose-dev.yaml up -d --build
+	docker compose --env-file .env.dev -f docker/docker-compose-dev.yml up -d --build
 
 down: ## Turn down compose
-	docker compose --env-file .env.dev -f docker/docker-compose-dev.yaml down
+	docker compose --env-file .env.dev -f docker/docker-compose-dev.yml down
 
 bash: ## Access bash from backend container
-	docker compose --env-file .env.dev -f docker/docker-compose-dev.yaml exec -it backend bash
+	docker compose --env-file .env.dev -f docker/docker-compose-dev.yml exec -it backend bash
 
 unit_test: ## Run unit tests only
-	docker compose --env-file .env.dev -f docker/docker-compose-dev.yaml exec backend bash -c "npm run test:unit"
+	docker compose --env-file .env.dev -f docker/docker-compose-dev.yml exec backend bash -c "npm run test:unit"
 
 test: ## Run tests
-	docker compose --env-file .env.dev -f docker/docker-compose-dev.yaml exec backend bash -c "npm run test"
+	docker compose --env-file .env.dev -f docker/docker-compose-dev.yml exec backend bash -c "npm run test"
