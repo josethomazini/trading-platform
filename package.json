@@ -1,0 +1,31 @@
+{
+  "name": "trading-platform",
+  "version": "1.0.0",
+  "description": "Branas' Clean Architecture course",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "npx jest",
+    "test:unit": "npx jest --watchAll --testMatch '**/*.spec.ts'",
+    "test:integration": "npx jest --testMatch '**/*.test.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josethomazini/trading-platform.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josethomazini/trading-platform/issues"
+  },
+  "homepage": "https://github.com/josethomazini/trading-platform#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
