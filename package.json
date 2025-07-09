@@ -7,9 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "npx jest",
-    "test:unit": "npx jest --watchAll --testMatch '**/*.spec.ts'",
-    "test:integration": "npx jest --testMatch '**/*.test.ts'"
+    "test": "jest",
+    "test:unit": "jest --watchAll --testMatch '**/*.spec.ts'",
+    "test:integration": "jest --testMatch '**/*.test.ts'"
   },
   "repository": {
     "type": "git",
