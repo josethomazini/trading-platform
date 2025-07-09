@@ -1,0 +1,12 @@
+services:
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ..:/app
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    environment:
+      NODE_ENV: development
+    command: sleep infinity

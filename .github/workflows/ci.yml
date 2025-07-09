@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🔎 Checkout
+      uses: actions/checkout@v4
+
+    - name: 🔎 Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: 💡 Start dev containers
+      run: make ci
+
+    - run: echo "🍏 This job's status is ${{ job.status }}."
