@@ -5,12 +5,17 @@ on:
     branches: [main]
 
 jobs:
-  setup-node:
-    uses: ./.github/workflows/setup-node.yml
+  ci:
+    runs-on: ubuntu-latest
 
-  docker-compose:
-    uses: ./.github/workflows/docker-compose.yml
+    steps:
+    - name: 🔎 Checkout
+      uses: actions/checkout@v4
 
-  test:
-    needs: [setup-node, docker-compose]
-    uses: ./.github/workflows/test.yml
+    - name: 💡 Calling ci/dev-docker-compose-up.yml
+      uses: ./.github/workflows/ci/dev-docker-compose-up.yml
+
+    - name: 💡 Calling ci/test.yml
+      uses: ./.github/workflows/ci/test.yml
+
+    - run: echo "🍏 This job's status is ${{ job.status }}."

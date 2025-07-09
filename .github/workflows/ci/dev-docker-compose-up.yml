@@ -6,16 +6,12 @@ on:
 
 jobs:
   docker-up:
-    runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
+      - name: 🔎 Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Start dev containers
+      - name: 💡 Start dev containers
         run: docker compose --env-file .env.dev -f docker/docker-compose-dev.yml up -d --build
 
-      - name: Wait for services to be ready
+      - name: 🐧🐧🐧🐧 Wait for services to be ready
         run: sleep 10
